@@ -13,9 +13,13 @@ function load_carbon_fields()
 
 function create_options_page()
 {
-    Container::make('theme_options', __('Theme Options'))
+    Container::make('theme_options', __('Contact Form'))
+        ->set_icon('dashicons-media-text')
         ->add_fields(
             array(
+                Field::make('checkbox', 'contact_plugin_active', __('Active'))
+                    ->set_option_value('yes'),
+
                 Field::make('text', 'contact_plugin_recipients', __('Recipient Email'))
                     ->set_attribute('placeholder', 'eg. your@email.com')
                     ->set_help_text('The email where the form is submitted to'),
